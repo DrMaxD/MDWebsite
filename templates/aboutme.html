@@ -1,16 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: Arial, sans-serif;
             background: url('./static/images/background.jpg') no-repeat center center fixed;
@@ -53,6 +47,8 @@
         }
 
         .container {
+            display: flex;
+            align-items: center;
             background-color: rgba(255, 255, 255, 0.9);
             padding: 20px;
             max-width: 800px;
@@ -62,6 +58,12 @@
             font-size: 1.2em;
             line-height: 1.5;
             margin-top: 100px; /* Adjust to avoid overlap with header */
+        }
+
+        .profile-pic {
+            width: 200px;
+            border-radius: 50%;
+            margin-right: 20px;
         }
 
         footer {
@@ -82,9 +84,18 @@
         <h1>About Me</h1>
         <a href="/">Home</a>
     </header>
+
     <div class="container">
-        <p>I will fill in this section later, this will be where I talk about myself.</p>
+        <img class="profile-pic" src="./static/images/suit.png" alt="Profile Picture">
+        <p>Max Debin (DrMaxD) is not a doctor. I am a student attending Marist college. I am majoring in Cybsecurity with a minor in
+            Computer Science, Information Technology, Information Systems, and Music. I have always known I wanted to do something with
+            technology for my career, however what exactly I would do has always been changing. I've gone PC hardware engineer, to software developer,
+            video game designer, before deciding to follow the path of cybersecurity, which led me to attending Marist College due to their cybersecurity program.
+            I have always been someone who has tried to get involved with as many things as possible, to create and explore many different paths and opurtunitys.
+            While
+        </p>
     </div>
+    <br>
     <footer>
         &copy; 2024 Max Debin. All rights reserved.
     </footer>
