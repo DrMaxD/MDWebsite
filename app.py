@@ -71,6 +71,10 @@ def contactme():
 def thank_you():
     return render_template('thankyou.html')
 
+@app.route('/socials')
+def socials():
+    return render_template("socials.html")
+
 if __name__ == "__main__":
     # Create the database tables
     with app.app_context():
