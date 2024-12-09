@@ -1,30 +1,29 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-from dotenv import load_dotenv  # Import the dotenv module to load environment variables
+from dotenv import load_dotenv  
 
-# Load environment variables from .env file
+
 load_dotenv()
 
-# Initialize Flask app
+
 app = Flask(__name__)
 
-# Load database configuration from environment variables
+
 db_name = os.getenv('db_name')
 db_owner = os.getenv('db_owner')
 db_pass = os.getenv('db_pass')
 
-# Configure the app for PostgreSQL using the environment variables
-app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{db_owner}:{db_pass}@localhost:5432/{db_name}'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Disable SQLAlchemy event system for performance
 
-# Initialize SQLAlchemy with the app
+app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{db_owner}:{db_pass}@localhost:5432/{db_name}'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  
+
+
 db = SQLAlchemy(app)
 
-# Import the Table model (make sure to adjust this import based on where the Table model is located)
-from db.schema.table import Table  # Ensure you have this path correct based on your project structure
 
-# Define routes
+from db.schema.table import Table  
+
 @app.route('/')
 def index():
     return render_template("index.html", root=True)
@@ -50,7 +49,6 @@ def contactme():
         contact_method = request.form.get('contact-method')
         message = request.form.get('message')
 
-        # Create a new record
         new_entry = Table(
             name=name,
             email=email,
@@ -59,7 +57,6 @@ def contactme():
             message=message
         )
 
-        # Add the record to the database
         db.session.add(new_entry)
         db.session.commit()
 
@@ -76,7 +73,6 @@ def socials():
     return render_template("socials.html")
 
 if __name__ == "__main__":
-    # Create the database tables
     with app.app_context():
-        db.create_all()  # Ensure tables are created if they don't already exist
+        db.create_all()  
     app.run(debug=True)
