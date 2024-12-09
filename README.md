@@ -17,6 +17,9 @@ Website Background - freepik.com
 https://shorturl.at/7qz0Q
 
 
+TEX Resume Template - Overleaf.com
+https://www.overleaf.com/
+
 
 
 
