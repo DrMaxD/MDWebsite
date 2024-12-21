@@ -3,12 +3,10 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 
-# Load environment variables
 load_dotenv()
 
 app = Flask(__name__)
 
-# Database configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql://postgres:postgres@localhost:5432/MDWebsite"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -25,5 +23,3 @@ class Table(db.Model):
 
 with app.app_context():
     db.create_all()
-
-# ... rest of your application code ...
