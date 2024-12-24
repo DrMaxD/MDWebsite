@@ -48,13 +48,20 @@ header a {
 .container {
   background-color: rgba(255, 255, 255, 0.9);
   padding: 20px;
-  max-width: 800px;
+  max-width: 900px;
+  width: 90%;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
   font-size: 1.2em;
   line-height: 1.5;
   margin-top: 100px;
+}
+
+.container iframe {
+  width: 100%;
+  height: 700px;
+  border: none;
 }
 
 footer {

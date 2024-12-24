@@ -7,14 +7,7 @@
 %%%%
 
 \documentclass[letterpaper,10pt]{article}
-%%%%%%%%%%%%%%%%%%%%%%%
-%% BEGIN_FILE: mteck.sty
-%% NOTE: Everything between here and END_FILE can
-%% be relocated to "mteck.sty" and then included with:
-%\usepackage{mteck}
 
-% Dependencies
-% NOTE: Some packages (lastpage, hyperref) require second build!
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
 \usepackage{enumitem}
@@ -25,25 +18,17 @@
 \usepackage{bookmark}
 \usepackage{lastpage}
 
-% Sans-Serif
-%\usepackage[sfdefault]{FiraSans}
-%\usepackage[sfdefault]{roboto}
-%\usepackage[sfdefault]{noto-sans}
-%\usepackage[default]{sourcesanspro}
 
-% Serif
 \usepackage{CormorantGaramond}
 \usepackage{charter}
 
-% Colors
-% Use with \color{Name}
-% Can wrap entire heading with {\color{accent} [...] }
+
 \usepackage{xcolor}
 \definecolor{accentTitle}{HTML}{0e6e55}
 \definecolor{accentText}{HTML}{0e6e55}
 \definecolor{accentLine}{HTML}{a16f0b}
 
-% Misc. Options
+
 \pagestyle{fancy}
 \fancyhf{}
 \fancyfoot{}
@@ -51,7 +36,6 @@
 \renewcommand{\footrulewidth}{0pt}
 \urlstyle{same}
 
-% Adjust Margins
 \addtolength{\oddsidemargin}{-0.7in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1.19in}
@@ -65,115 +49,80 @@
 \raggedbottom
 \raggedright
 
-% ATS Readability
+
 \input{glyphtounicode}
 \pdfgentounicode=1
 
-%-----------------%
-% Custom Commands %
-%-----------------%
 
-% Centered title along with subtitle between HR
-% Usage: \documentTitle{Name}{Details}
 \newcommand{\documentTitle}[2]{
   \begin{center}
     {\Huge\color{accentTitle} #1}
     \vspace{10pt}
     {\color{accentLine} \hrule}
     \vspace{2pt}
-    %{\footnotesize\color{accentTitle} #2}
     \footnotesize{#2}
     \vspace{2pt}
     {\color{accentLine} \hrule}
   \end{center}
 }
 
-% Create a footer with correct padding
-% Usage: \documentFooter{\thepage of X}
+
 \newcommand{\documentFooter}[1]{
   \setlength{\footskip}{10.25pt}
   \fancyfoot[C]{\footnotesize #1}
 }
 
-% Simple wrapper to set up page numbering
-% Usage: \numberedPages
-% WARNING: Must run pdflatex twice!
 \newcommand{\numberedPages}{
   \documentFooter{\thepage/\pageref{LastPage}}
 }
 
-% Section heading with horizontal rule
-% Usage: \section{Title}
 \titleformat{\section}{
   \vspace{-5pt}
   \color{accentText}
   \raggedright\large\bfseries
 }{}{0em}{}[\color{accentLine}\titlerule]
 
-% Section heading with separator and content on same line
-% Usage: \tinysection{Title}
+
 \newcommand{\tinysection}[1]{
   \phantomsection
   \addcontentsline{toc}{section}{#1}
   {\large{\bfseries\color{accentText}#1} {\color{accentLine} |}}
 }
 
-% Indented line with arguments left/right aligned in document
-% Usage: \heading{Left}{Right}
+
 \newcommand{\heading}[2]{
   \hspace{10pt}#1\hfill#2\\
 }
 
-% Adds \textbf to \heading
+
 \newcommand{\headingBf}[2]{
   \heading{\textbf{#1}}{\textbf{#2}}
 }
 
-% Adds \textit to \heading
+
 \newcommand{\headingIt}[2]{
   \heading{\textit{#1}}{\textit{#2}}
 }
 
-% Template for itemized lists
-% Usage: \begin{resume_list} [items] \end{resume_list}
 \newenvironment{resume_list}{
   \vspace{-7pt}
   \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=30pt]
 }{
   \end{itemize}
-  %\vspace{-2pt}
 }
 
-% Formats an item to use as an itemized title
-% Usage: \itemTitle{Title}
+
 \newcommand{\itemTitle}[1]{
   \item[] \underline{#1}\vspace{4pt}
 }
 
-% Bullets used in itemized lists
 \renewcommand\labelitemi{--}
 
-%% END_FILE: mteck.sty
-%%%%%%%%%%%%%%%%%%%%%%
 
-
-%===================%
-% John Doe's Resume %
-%===================%
-
-%\numberedPages % NOTE: lastpage requires a second build
-%\documentFooter{\thepage of 2} % Does similar without using lastpage
 \begin{document}
 
-  %---------%
-  % Heading %
-  %---------%
-
   \documentTitle{Max Debin}{
-    % Web Version
-    %\raisebox{-0.05\height} \faPhone\ [redacted - web copy] ~
-    %\raisebox{-0.15\height} \faEnvelope\ [redacted - web copy] ~
-    %%
+
     \href{tel:1234567890}{
       \raisebox{-0.05\height} \faPhone\ 860-593-4053} ~ | ~
     \href{mailto:user@domain.tld}{
@@ -184,16 +133,8 @@
       \raisebox{-0.15\height} \faGithub\ github.com/DrMaxD}
   }
 
-  %---------%
-  % Summary %
-  %---------%
-
   \tinysection{Summary}
   Simplified version of a monstrosity that I built back in college using current best practices.
-
-  %--------%
-  % Skills %
-  %--------%
 
   \section{Skills}
 
@@ -208,9 +149,6 @@
   \end{itemize}
 \end{multicols}
 
-  %------------%
-  % Experience %
-  %------------%
 \section{Employment History}
 
   \headingBf{Geek Squad Agent}{May 2024 - Present}
@@ -246,13 +184,9 @@
     \item Brother of Kappa Kappa Psi, National Honorary Service Fraternity 
   \end{resume_list}
 
-  %-----------%
-  % Education %
-  %-----------%
-
   \section{Education}
 
-  \headingBf{Marist College}{} % Note: Adding year(s) exposes an implied age
+  \headingBf{Marist College}{} 
   \headingIt{Bachelor of Science in Cybersecurity}{}
   \headingIt{Minors: Computer Science, Information System, Information Technology, Music}{}
 
@@ -264,9 +198,6 @@
     \item Academic High Honors - 2019-2023
   \end{resume_list}
 
-  %----------------------------%
-  % Extracurricular Activities %
-  %----------------------------%
 
   \section{Projects}
 
