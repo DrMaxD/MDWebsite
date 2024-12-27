@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Max Debin</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: url("./images/background.jpg") no-repeat center center fixed;
+        background-size: cover;
+        color: black;
+      }
+
+      header {
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0);
+        padding: 20px;
+        color: white;
+        font-size: 2.5em;
+        font-weight: bold;
+      }
+
+      section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 180px);
+        padding: 20px;
+      }
+
+      nav {
+        background-color: transparent;
+        color: white;
+        padding: 20px;
+        width: 200px;
+        height: fit-content;
+        margin-right: 20px;
+        border-radius: 10px;
+      }
+
+      nav ul {
+        list-style-type: none;
+      }
+
+      nav li {
+        margin-bottom: 15px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.8em;
+      }
+
+      article {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        width: 400px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: left;
+        font-size: 1.1em;
+      }
+
+      footer {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+        text-align: center;
+        padding: 10px;
+        font-size: 0.9em;
+        position: relative;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: white;
+      }
+
+      .social-links img {
+        width: 40px;
+        height: 40px;
+        border: 2px solid white;
+      }
+
+      @media (max-width: 768px) {
+        section {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        nav {
+          margin-right: 0;
+          margin-bottom: 20px;
+          width: 100%;
+          text-align: center;
+        }
+
+        article {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>Max Debin</header>
+
+    <section>
+      <nav>
+        <ul>
+          <li><a href="aboutme.html">About Me</a></li>
+          <br />
+          <li><a href="projects.html">Projects</a></li>
+          <br />
+          <li><a href="resume.html">Resume</a></li>
+          <br />
+          <li><a href="contactme.html">Contact Me</a></li>
+        </ul>
+      </nav>
+
+      <article>
+        <p>
+          This is the official webpage for Max Debin. The primary purpose of
+          this site is to help build a portfolio and help me advertise myself
+          for the future.
+        </p>
+      </article>
+    </section>
+
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/max-debin/">
+        <img src="./images/linkedin.png" alt="LinkedIn" />
+      </a>
+      <a href="https://discord.gg/AazcJxmk">
+        <img src="./images/discord.png" alt="Discord" />
+      </a>
+      <a href="https://github.com/DrMaxD">
+        <img src="./images/github.png" alt="GitHub" />
+      </a>
+      <a href="https://www.youtube.com/channel/UChIUQN-AASJhna4SUw4itfQ">
+        <img src="./images/drmdl2.png" alt="YouTube" />
+      </a>
+    </div>
+
+    <footer>&copy; 2024 Max Debin. All rights reserved.</footer>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Me</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: url("./images/background.jpg") no-repeat center center fixed;
+        background-size: cover;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+        align-items: center;
+      }
+
+      header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0);
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      header h1 {
+        text-align: center;
+        color: white;
+        margin: 0;
+        font-size: 2.5em;
+        flex-grow: 1;
+      }
+
+      header h2 {
+        color: white;
+        text-align: center;
+        margin: 0;
+        font-size: 1em;
+        flex-grow: 1;
+      }
+
+      header a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.5em;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+
+      .container {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        width: 80%;
+        max-width: 800px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        font-size: 1.2em;
+        line-height: 1.5;
+        margin-top: 100px;
+      }
+
+      footer {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        font-size: 0.9em;
+      }
+
+      form {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      form > * {
+        flex: 1 1 45%;
+        margin: 10px;
+      }
+
+      label {
+        margin-top: 10px;
+        font-weight: bold;
+      }
+
+      input,
+      select,
+      textarea {
+        margin-top: 5px;
+        padding: 10px;
+        width: 100%;
+        max-width: 400px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      textarea {
+        resize: vertical;
+        height: 100px;
+      }
+
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Contact Me</h1>
+      <a href="index.html">Home</a>
+    </header>
+    <div class="container">
+      <h2>
+        Please use the form below to contact me and I will try to respond as
+        soon as possible.
+      </h2>
+      <form method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required />
+
+        <label for="contact-method">Preferred Method of Contact:</label>
+        <select id="contact-method" name="contact-method" required>
+          <option value="email">Email</option>
+          <option value="phone">Phone</option>
+          <option value="sms">SMS</option>
+        </select>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <footer>&copy; 2024 Max Debin. All rights reserved.</footer>
+  </body>
+</html>
