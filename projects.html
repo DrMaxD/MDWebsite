@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects</title>
+    <title>Projects and Experiences</title>
     <style>
       * {
         margin: 0;
@@ -18,9 +18,9 @@
         color: black;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        height: 100vh;
         align-items: center;
+        min-height: 100vh;
+        padding: 20px 0;
       }
 
       header {
@@ -30,9 +30,8 @@
         align-items: center;
         padding: 20px;
         background-color: rgba(0, 0, 0, 0);
-        position: absolute;
-        top: 0;
-        left: 0;
+        position: relative;
+        margin-bottom: 20px;
       }
 
       header h1 {
@@ -61,7 +60,16 @@
         text-align: center;
         font-size: 1.2em;
         line-height: 1.5;
-        margin-top: 100px;
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container img {
+        margin-right: 20px;
+        width: 150px;
+        height: auto;
       }
 
       footer {
@@ -69,22 +77,37 @@
         color: white;
         text-align: center;
         padding: 10px;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
+        margin-top: 20px;
         font-size: 0.9em;
       }
     </style>
   </head>
   <body>
     <header>
-      <h1>Projects</h1>
+      <h1>Projects and Experiences</h1>
       <a href="index.html">Home</a>
     </header>
+
     <div class="container">
-      <p>This will be all the projects I have done</p>
+      <img src="./images/geeksquad.png" alt="Geek Squad" />
+      <p>MDWebsite is a website designed to advertise myself (Max Debin) and demonstrate by web development abilities. 
+        This project was inspired by multiple friends who have all created and recomended creating a personal website. 
+        This project was created with HTML, CSS There are two versions of the website. A static website and a dynamic one
+        using flask conected to a postgres database. The four main pages are an about me page, projects and experiences, 
+        my resume, as well as a contact me page where when the user fills out the information, 
+        an email will be sent to me containing the contents of the message.</p>
     </div>
+
+    <div class="container">
+      <img src="./images/drmdl2.png" alt="MDWebsite" />
+      <p>MDWebsite is a website designed to advertise myself (Max Debin) and demonstrate by web development abilities. 
+        This project was inspired by multiple friends who have all created and recomended creating a personal website. 
+        This project was created with HTML, CSS There are two versions of the website. A static website and a dynamic one
+        using flask conected to a postgres database. The four main pages are an about me page, projects and experiences, 
+        my resume, as well as a contact me page where when the user fills out the information, 
+        an email will be sent to me containing the contents of the message.</p>
+    </div>
+
     <footer>&copy; 2024 Max Debin. All rights reserved.</footer>
   </body>
 </html>
