@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects</title>
+    <title>Projects and Experiences</title>
     <style>
       * {
         margin: 0;
@@ -18,9 +18,10 @@
         color: black;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        height: 100vh;
         align-items: center;
+        min-height: 100vh;
+        padding: 20px 0;
+        position: relative;
       }
 
       header {
@@ -30,9 +31,8 @@
         align-items: center;
         padding: 20px;
         background-color: rgba(0, 0, 0, 0);
-        position: absolute;
-        top: 0;
-        left: 0;
+        position: relative;
+        margin-bottom: 20px;
       }
 
       header h1 {
@@ -55,13 +55,29 @@
       .container {
         background-color: rgba(255, 255, 255, 0.9);
         padding: 20px;
-        max-width: 800px;
+        max-width: 900px;
         border-radius: 15px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         text-align: center;
         font-size: 1.2em;
         line-height: 1.5;
-        margin-top: 100px;
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container img {
+        margin-right: 20px;
+        width: 150px;
+        height: auto;
+      }
+
+      .p {
+        text-align: center;
+        color: white;
+        font-size: 1.5em;
+        margin: 20px 0;
       }
 
       footer {
@@ -69,22 +85,114 @@
         color: white;
         text-align: center;
         padding: 10px;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
+        margin-top: 20px;
         font-size: 0.9em;
+      }
+
+      .side-images {
+        position: absolute;
+        top: 57%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+      }
+
+      .side-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 80%;
+      }
+
+      .side-column img {
+        width: 150px;
+        height: auto;
+        margin: 105px 0;
       }
     </style>
   </head>
   <body>
     <header>
-      <h1>Projects</h1>
+      <h1>Projects and Experiences</h1>
       <a href="index.html">Home</a>
     </header>
-    <div class="container">
-      <p>This will be all the projects I have done</p>
+
+        <!---
+    <div class="p">
+      <p>Geek Squad Agent</p>
     </div>
+
+    <div class="container">
+      <a href="https://www.youtube.com/channel/UChIUQN-AASJhna4SUw4itfQ">
+        <img src="./images/geeksquad.png" alt="Geek Squad Agent" />
+      </a>
+      <p>During the summer of 2024, I spent my time as a part time employee at best buy working as a geek squad agent. 
+        During this time, I assisted customers with their technology related issues such as software isntallation, device setup/data transfer, and general trouble shooting.
+        Throughout my time as a geek squad agent, I thrived working in a fast paced enviroment, 
+        improved communication skills with customers (clients) and gained a more general knowledge of a variety of daily software people may use
+      </p>
+    </div>
+  -->
+
+  <div class="p">
+    <p>MDWebsite</p>
+  </div>
+  
+  <div class="container">
+    <a href="https://github.com/DrMaxD/MDWebsite">
+      <img src="./images/background.jpg" alt="MDWebsite" />
+    </a>
+    <p>MDWebsite is a website designed to advertise myself (Max Debin) and demonstrate by web development abilities. 
+      This project was inspired by multiple friends who have all created and recomended creating a personal website. 
+      This project was created with HTML, CSS There are two versions of the website. A static website and a dynamic one
+      using flask conected to a postgres database. The four main pages are an about me page, projects and experiences, 
+      my resume, as well as a contact me page where when the user fills out the information, 
+      an email will be sent to me containing the contents of the message.</p>
+  </div>
+
+  <div class="p">
+    <p>Freaky Food</p>
+  </div>
+
+  <div class="container">
+    <a href="https://github.com/DrMaxD/freakyFood">
+      <img src="./images/FFLogo.png" alt="Freaky Food" />
+    </a>
+    <p>Created as a group project, Freaky Food acts as a food delivery app similar to door dash and grubhub.
+       It is run using a backend made up of Flask, Python, and a PostgreSQL database.
+        The project was completed using the agile work method to maximize the groups efficency while working on the project. Throughout the project, I gained a better understanding of databases, </p>
+  </div>
+  
+  <div class="p">
+    <p>MDServer</p>
+  </div>
+  
+  <div class="container">
+    <a href="https://github.com/DrMaxD/MDServer">
+      <img src="./images/minecraft.jpeg" alt="MDServer" />
+    </a>
+    <p>PROJECT CURRENTLY UNDER DEVELOPMENT</p>
+    <!--<p>MDServer is a minecraft server created to demonstrate my abilities in server hosting/ managment, java progragming capabilities. 
+      The server itself is being hosted on a linux pc which will run whenever needed as to not use up to much electricity. 
+      The server will run using a custom datapack that will modify the game a bit to make it more enjoyable, 
+      such as increased minecarft speeds, new mob attributes, and modified textures. The world itself will be a personal survival world for me to play in.
+       Other could join the world in spectator mode and visit a museum created to view all the changes made through the datapack.</p>-->
+  </div>
+
+    <div class="side-images">
+      <div class="side-column">
+        <img src="./images/html.png" alt=" L1" />
+        <img src="./images/python.png" alt=" L2" />
+        <img src="./images/java.png" alt=" L3" />
+      </div>
+      <div class="side-column">
+        <img src="./images/css.png" alt="R1" />
+        <img src="./images/postgres.png" alt="R2" />
+        <img src="./images/ubuntu.jpg" alt="R3" />
+      </div>
+    </div>
+
     <footer>&copy; 2024 Max Debin. All rights reserved.</footer>
   </body>
 </html>
