@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Page</title>
+  <link rel="stylesheet" href="product.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="left-section">
+      <a href="madden2.html"><img src="Images/KS2.png" alt="K-Swiss company logo" class="logo" /></a>
+    </div>
+    <nav class="nav-links" aria-label="Primary menu">
+      <a href="#" role="link">New</a>
+      <a href="#" role="link">Men</a>
+      <a href="#" role="link">Women</a>
+      <a href="#" role="link">Kids</a>
+      <a href="#" role="link">Court</a>
+      <a href="#" role="link">Collabs</a>
+      <a href="#" role="link">Discover</a>
+    </nav>
+    <div class="right-icons">
+      <div class="search-box" role="search">
+        <img src="Images/TEMP.png" alt="Search icon" class="icon" />
+        <label for="search-field" class="visually-hidden">🔍</label>
+        <input type="text" id="search-field" placeholder="Search" />
+      </div>
+      <img src="Images/TEMP.png" alt="Favorites icon" class="icon" role="img" />
+      <img src="Images/TEMP.png" alt="User account icon" class="icon" role="img" />
+      <img src="Images/TEMP.png" alt="Shopping cart icon" class="icon" role="img" />
+    </div>
+  </header>
+
+  <main class="product-page" id="main-content">
+    <div class="product-images">
+      <img id="main-image" src="" alt="Main Product Image" />
+      <div class="thumbnails">
+        <img id="thumb1" src="" alt="Thumbnail 1" />
+        <img id="thumb2" src="" alt="Thumbnail 2" />
+        <img id="thumb3" src="" alt="Thumbnail 3" />
+      </div>
+    </div>
+    <div class="product-info">
+      <h1 id="product-title"></h1>
+      <p class="product-subtitle">K-Swiss by Steve Madden</p>
+      <p class="product-price" id="product-price">$0.00</p>
+      <p><strong>Color:</strong> <span id="product-color">TEMP</span></p>
+      <h4>Size</h4>
+      <div class="sizes" id="product-sizes"></div>
+      <button class="buy-button">Please Select a Size</button>
+    </div>
+  </main>
+
+  <script>
+    const products = {
+      classic: {
+        title: "TEMP",
+        image: "Images/TEMP.png",
+        thumbs: ["Images/TEMP.png", "Images/TEMP.png", "Images/TEMP.png"],
+        price: "0.00",
+        color: "TEMP",
+        sizes: ["TEMP", "TEMP", "TEMP"]
+      },
+      hypercourt: {
+        title: "TEMP",
+        image: "Images/TEMP.png",
+        thumbs: ["Images/TEMP.png", "Images/TEMP.png", "Images/TEMP.png"],
+        price: "0.00",
+        color: "TEMP",
+        sizes: ["TEMP", "TEMP", "TEMP"]
+      },
+      pickleball: {
+        title: "TEMP",
+        image: "Images/TEMP.png",
+        thumbs: ["Images/TEMP.png", "Images/TEMP.png", "Images/TEMP.png"],
+        price: "0.00",
+        color: "TEMP",
+        sizes: ["TEMP", "TEMP", "TEMP"]
+      },
+      racket: {
+        title: "TEMP",
+        image: "Images/TEMP.png",
+        thumbs: ["Images/TEMP.png", "Images/TEMP.png", "Images/TEMP.png"],
+        price: "0.00",
+        color: "TEMP",
+        sizes: ["TEMP", "TEMP", "TEMP"]
+      },
+      performance: {
+        title: "TEMP",
+        image: "Images/TEMP.png",
+        thumbs: ["Images/TEMP.png", "Images/TEMP.png", "Images/TEMP.png"],
+        price: "0.00",
+        color: "TEMP",
+        sizes: ["TEMP", "TEMP", "TEMP"]
+      },
+      street: {
+        title: "TEMP",
+        image: "Images/TEMP.png",
+        thumbs: ["Images/TEMP.png", "Images/TEMP.png", "Images/TEMP.png"],
+        price: "0.00",
+        color: "TEMP",
+        sizes: ["TEMP", "TEMP", "TEMP"]
+      },
+      courtexpress: {
+        title: "TEMP",
+        image: "Images/TEMP.png",
+        thumbs: ["Images/TEMP.png", "Images/TEMP.png", "Images/TEMP.png"],
+        price: "0.00",
+        color: "TEMP",
+        sizes: ["TEMP", "TEMP", "TEMP"]
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const productKey = params.get("product");
+    const product = products[productKey];
+
+    if (product) {
+      document.getElementById("product-title").textContent = product.title;
+      document.getElementById("main-image").src = product.image;
+      document.getElementById("thumb1").src = product.thumbs[0];
+      document.getElementById("thumb2").src = product.thumbs[1];
+      document.getElementById("thumb3").src = product.thumbs[2];
+      document.getElementById("product-price").textContent = `$${product.price}`;
+      document.getElementById("product-color").textContent = product.color;
+
+      const sizeContainer = document.getElementById("product-sizes");
+      product.sizes.forEach(size => {
+        const button = document.createElement("button");
+        button.textContent = size;
+        sizeContainer.appendChild(button);
+      });
+    } else {
+      document.body.innerHTML = "<h2>Product not found.</h2>";
+    }
+  </script>
+</body>
+</html>

@@ -1,11 +1,3 @@
-%%%%
-% MTecknology's Resume
-%%%%
-% Author: Michael Lustfield
-% License: CC-BY-4
-% - https://creativecommons.org/licenses/by/4.0/legalcode.txt
-%%%%
-
 \documentclass[letterpaper,10pt]{article}
 
 \usepackage[empty]{fullpage}
@@ -18,16 +10,13 @@
 \usepackage{bookmark}
 \usepackage{lastpage}
 
-
 \usepackage{CormorantGaramond}
 \usepackage{charter}
 
-
 \usepackage{xcolor}
-\definecolor{accentTitle}{HTML}{0e6e55}
-\definecolor{accentText}{HTML}{0e6e55}
-\definecolor{accentLine}{HTML}{a16f0b}
-
+\definecolor{accentTitle}{HTML}{000000}
+\definecolor{accentText}{HTML}{000000}
+\definecolor{accentLine}{HTML}{000000}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -49,23 +38,23 @@
 \raggedbottom
 \raggedright
 
-
 \input{glyphtounicode}
 \pdfgentounicode=1
-
 
 \newcommand{\documentTitle}[2]{
   \begin{center}
     {\Huge\color{accentTitle} #1}
     \vspace{10pt}
+    
     {\color{accentLine} \hrule}
     \vspace{2pt}
+    
     \footnotesize{#2}
     \vspace{2pt}
+    
     {\color{accentLine} \hrule}
   \end{center}
 }
-
 
 \newcommand{\documentFooter}[1]{
   \setlength{\footskip}{10.25pt}
@@ -82,23 +71,19 @@
   \raggedright\large\bfseries
 }{}{0em}{}[\color{accentLine}\titlerule]
 
-
 \newcommand{\tinysection}[1]{
   \phantomsection
   \addcontentsline{toc}{section}{#1}
   {\large{\bfseries\color{accentText}#1} {\color{accentLine} |}}
 }
 
-
 \newcommand{\heading}[2]{
   \hspace{10pt}#1\hfill#2\\
 }
 
-
 \newcommand{\headingBf}[2]{
   \heading{\textbf{#1}}{\textbf{#2}}
 }
-
 
 \newcommand{\headingIt}[2]{
   \heading{\textit{#1}}{\textit{#2}}
@@ -111,114 +96,113 @@
   \end{itemize}
 }
 
-
 \newcommand{\itemTitle}[1]{
   \item[] \underline{#1}\vspace{4pt}
 }
 
 \renewcommand\labelitemi{--}
 
-
 \begin{document}
 
-  \documentTitle{Max Debin}{
+\documentTitle{Max Debin}{
+  \href{tel:8605934053}{\raisebox{-0.05\height} \faPhone\ 860-593-4053} ~ | ~
+  \href{mailto:max.debin21@gmail.com}{\raisebox{-0.15\height} \faEnvelope\ max.debin21@gmail.com} ~ | ~
+  \href{https://www.linkedin.com/in/max-debin/}{\raisebox{-0.15\height} \faLinkedin\ linkedin.com/max-debin/} ~ | ~
+  \href{https://github.com/DrMaxD}{\raisebox{-0.15\height} \faGithub\ github.com/DrMaxD}
+}
 
-    \href{tel:1234567890}{
-      \raisebox{-0.05\height} \faPhone\ 860-593-4053} ~ | ~
-    \href{mailto:user@domain.tld}{
-      \raisebox{-0.15\height} \faEnvelope\ max.debin21@gmail.com} ~ | ~
-    \href{https://www.linkedin.com/in/max-debin/}{
-      \raisebox{-0.15\height} \faLinkedin\ linkedin.com/in/max-debin/} ~ | ~
-    \href{https://github.com/DrMaxD}{
-      \raisebox{-0.15\height} \faGithub\ github.com/DrMaxD}
-  }
+\section{Skills}
 
-  \tinysection{Summary}
-  Max Debin is a cybersecurity student studying at Marist University with minors in CS, IT, IS, and music.
+\headingBf{Coding \& Tools}{}
+\begin{resume_list}
+  \item Python, PowerShell, SQL, Bash, Git/GitHub, HTML/CSS, JavaScript
+\end{resume_list}
 
-  \section{Skills}
+\headingBf{Operating Systems}{}
+\begin{resume_list}
+  \item Windows Server, Windows 10/11, Linux (Kali, Ubuntu, Metasploitable, Arch), MacOS
+\end{resume_list}
 
-\begin{multicols}{2}
-  \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=75pt]
-    \item[\textbf{Languages}] Python, HTML, CSS, Java, SQL, GIT, JavaScript
-    \item[\textbf{Microsoft365}] Word, Powerpoint, Excel, Sharepoint
-    \item[\textbf{}] 
-    
-    \item[\textbf{Saxophonist}] Tenor, Alto, Clarinet, Soprano
+\headingBf{Security \& Networking Tools}{}
+\begin{resume_list}
+  \item Wireshark, Splunk, Active Directory, Microsoft 365 Security, pfSense, DHCP/DNS, Cisco CLI, Server Manager
+\end{resume_list}
 
-    \item[\textbf{Programs}] VS Code, pgAdmin, VMware Workstation, Github, Wireshark
-    
-    \item[\textbf{Networking}] connect and configure PCs, switches, and routers
-    
-    \item[\textbf{Operating Systems}] Windows, MacOS, Linux (Kali, Ubuntu)
-  \end{itemize}
-\end{multicols}
+\headingBf{Deployment \& Virtualization}{}
+\begin{resume_list}
+  \item VMware Workstation, Microsoft Deployment Toolkit (MDT), Windows Deployment Services (WDS), PXE Boot, Azure Portal
+\end{resume_list}
 
 \section{Employment History}
 
-  \headingBf{Geek Squad Agent}{May 2024 - January 2025}
-  \begin{resume_list}
-    \item Assist customers with technical issues such as software installation, device trouble shooting, device setup and data transfer
-    \item Thrived in a fast-paced work environment 
-    \item Improved customer communication skills 
-    \item Gained a better understanding of large variety of software and what their purpose it 
-  \end{resume_list}
-  \section{Academic Experience}
+\headingBf{System Admin Internship -- Steve Madden}{June 2025 -- August 2025}
+\begin{resume_list}
+  \item Supported identity and access management through Active Directory and Microsoft 365.
+  \item Automated emergency response configuration and MFA migration using PowerShell and Azure.
+  \item Deployed secure, offline Windows 11 imaging infrastructure using MDT, WDS, and PXE.
+\end{resume_list}
 
-  \headingBf{Cybersecurity Research Intern}{January 2025 -- Present}
-  \begin{resume_list}
-    \item Vulnerability Prioritization Using Machine Learning 
-    \item Done using MITRE ATT\&CK framework
-    \end{resume_list}
+\headingBf{Geek Squad Agent -- Best Buy}{May 2024 - January 2025}
+\begin{resume_list}
+  \item Assist customers with technical issues; software installation, device troubleshooting, and other technical issues
+  \item Thrived in a fast-paced work environment and improved communication skills
+  \item Assisted in training of new employees
+\end{resume_list}
 
-   \headingBf{Marist University Cybersecurity Club President}{January 2025 -- Present}
-  \begin{resume_list}
-        \item Runs weekly general club meetings and board meetings
-        \item Leads and delegates other board members to ensure productivity of the club 
-  \end{resume_list}
+\section{Education}
 
-   \headingBf{Marching Band Field Commander}{August 2024 -- Present}
-  \begin{resume_list}
-      \item Acted as Field Commander (Drum Major) for the Marist College Marching Band  
-    \item Required me to lead the band for rehearsals and sporting events when the Director of the Marist College Marching Band is unavailable  
-    \item Brother of Kappa Kappa Psi, National Honorary Service Fraternity 
-  \end{resume_list}
+\headingBf{Marist University}{Expected to Graduate in 2027} 
+\begin{resume_list}
+  \item Bachelor of Science in Cybersecurity
+  \item Minors: Computer Science, Information System, Information Technology, Music
+  \item GPA: 3.75
+\end{resume_list}
 
-   \headingBf{TryHackMe Modules}{January 2025 -- Present}
-  \begin{resume_list}
-      \item Cyber Defense Frameworks
-    \item Cryptography
-    \item Compromising Advanced Directory
-  \end{resume_list}
-  \section{Education}
+\section{Extra Curriculars}
 
-  \headingBf{Marist University}{} 
-  \headingIt{Bachelor of Science in Cybersecurity}{}
-  \headingIt{Minors: Computer Science, Information System, Information Technology, Music}{}
+\headingBf{Cybersecurity Research Intern}{January 2025 -- Present}
+\begin{resume_list}
+  \item Vulnerability Prioritization Using Machine Learning 
+  \item Designing an automated tool that maps vulnerabilities (CVEs) to MITRE attack techniques (TTPs)
+\end{resume_list}
 
-  \vspace{5pt}
-  \headingBf{William H Hall High School}{}
-  \begin{resume_list}
-    \item National Honor Society \hspace{2pt}-  May 2022 
-    \item Spanish Honor Society - May 2021
-    \item Academic High Honors - 2019-2023
-  \end{resume_list}
+\headingBf{Cybersecurity Teaching Assistant}{August 2025 -- December 2025}
+\begin{resume_list}
+  \item Student Teaching Assistant for Intro to Cybersecurity Course
+  \item Assist professor in creating course curriculum
+\end{resume_list}
+
+\headingBf{Marist University Cybersecurity Club President}{January 2025 -- Present}
+\begin{resume_list}
+  \item Organize and run weekly general and board meetings
+  \item Lead and delegate tasks to board members to ensure club productivity
+\end{resume_list}
+
+\section{Related Coursework}
+
+\headingBf{Intro to Cybersecurity, Mobile Security, Computer Forensics}{}
+\begin{resume_list}
+  \item Studied cybersecurity fundamentals, wireless infrastructure threats, mobile attack surfaces, and WLAN security policies
+  \item Gained forensics skills using Linux CAINE and learned how to identify, collect, and analyze digital evidence in cybercrime investigations
+    \item Created a virtual network designed to simulate a cyber attack and demonstrate defense techniques using Kali, Metasploitable2, Kali Purple, pfSense, Splunk
+\end{resume_list}
 
 
-  \section{Projects}
+\headingBf{Data Communications, Internetworking}{}
+\begin{resume_list}
+  \item Learned to configure and troubleshoot networks; covered TCP/IP, OSI model, congestion control, and network protocols
+  \item Gained hands-on experience designing networks using Cisco CLI
+\end{resume_list}
 
-  \headingBf{MDWebsite}{Nov 2024 -- Present}
-  \begin{resume_list}
-    \item Personal website meant for advertising myself
-    \item Uses HTML, CSS, Python, Postgres, JavaScript (Maybe)
-    \item Contact Me page using postgres database to store information a user can enter which will allow me to contact them back
-  \end{resume_list}
+\headingBf{Intro to Programming, Software Development 1, Software Development 2}{}
+\begin{resume_list}
+  \item Gained experience with Python, Java, and web technologies including HTML, CSS, JavaScript, and Git
+\end{resume_list}
 
-  \headingBf{Food Delivery App}{Sept 2024 -- Dec 2024}
-  \begin{resume_list}
-    \item Food delivery app hosted using a python and PostgreSQL back-end
-    \item Allows multiple users to interact within a database to create and manage orders
-    \item Made with: html, css, python, postgreSQL, flask, 
-  \end{resume_list}
+\headingBf{Software Systems and Analysis, System Design, Database Management}{}
+\begin{resume_list}
+  \item Developed skills in business analysis, process modeling, system development, user-centered design, and IT strategy
+  \item Learned how to design, manage, and query relational databases using SQL
+\end{resume_list}
 
 \end{document}
