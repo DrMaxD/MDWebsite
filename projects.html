@@ -38,7 +38,7 @@
       header h1 {
         text-align: center;
         color: white;
-        margin: 0;
+        margin: 0 auto;
         font-size: 2.5em;
         flex-grow: 1;
       }
@@ -52,32 +52,48 @@
         right: 20px;
       }
 
+      .p {
+        text-align: center;
+        color: white;
+        font-size: 1.5em;
+        margin: 20px 0;
+        padding: 0 10px;
+      }
+
       .container {
         background-color: rgba(255, 255, 255, 0.9);
         padding: 20px;
         max-width: 900px;
         border-radius: 15px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        text-align: center;
         font-size: 1.2em;
         line-height: 1.5;
-        margin: 20px 0;
+        margin: 20px;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
+        gap: 20px;
+        flex-wrap: wrap;
+        text-align: left;
       }
 
       .container img {
-        margin-right: 20px;
         width: 150px;
         height: auto;
+        flex-shrink: 0;
       }
 
-      .p {
-        text-align: center;
-        color: white;
-        font-size: 1.5em;
-        margin: 20px 0;
+      .container iframe {
+        max-width: 100%;
+        min-height: 200px;
+        width: 100%;
+        height: auto;
+        flex-grow: 1;
+      }
+
+      .container p {
+        flex: 1;
+        min-width: 250px;
       }
 
       footer {
@@ -87,8 +103,42 @@
         padding: 10px;
         margin-top: 20px;
         font-size: 0.9em;
+        width: 100%;
       }
 
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2em;
+        }
+
+        header a {
+          font-size: 1.2em;
+          top: 15px;
+          right: 15px;
+        }
+
+        .p {
+          font-size: 1.3em;
+          padding: 0 15px;
+        }
+
+        .container {
+          flex-direction: column;
+          align-items: center;
+          padding: 15px;
+          font-size: 1em;
+          text-align: center;
+        }
+
+        .container img {
+          width: 120px;
+          margin-bottom: 10px;
+        }
+
+        .container p {
+          text-align: left;
+        }
+      }
     </style>
   </head>
   <body>
@@ -97,115 +147,93 @@
       <a href="index.html">Home</a>
     </header>
 
-    
-
-
-  <div class="p">
-    <p>Steve Madden System Admininstator Summer Intern</p>
-  </div>
-  
-  <div class="container">
-    <a href="Capstone/madden.html">
-      <img src="./Capstone/Images/SM.png" alt="Steve Madden" />
-    </a>
-    <p>During my internship at Steve Madden, I worked on several enterprise IT projects focused on automation, user management, and infrastructure.
-       I helped assign emergency 911 addresses to Teams users across retail stores using PowerShell to automate bulk updates in Microsoft Teams Admin Center.
-        I also assisted in the company-wide migration from Duo to Microsoft Authenticator, using Microsoft Azure to manage user transitions and creating user documentation and communications. 
-        Additionally, I set up a Windows Server for automated Windows 11 deployments via PXE boot using Microsoft Deployment Toolkit (MDT) and Windows Deployment Services (WDS), including scripting driver extraction and configuring DHCP/DNS. 
-        This experience strengthened my skills in PowerShell, Azure, MDT, WDS, and enterprise IT operations.
-      Interns were tasked of picking a company that Steve Madden could acquire and create a pitch for a company. 
-      Our group chose the shoe brand called K-Swiss. The website is a rebranded mockup of the current existing K-Swiss website</p>
-  </div>
-
-
     <div class="p">
-    <p>Best Buy Geek Squad Agent</p>
-  </div>
-  
-  <div class="container">
-    <a href="Bestbuy.com">
-      <img src="./images/geeksquad.png" alt="Geek Squad Agent" />
-    </a>
-    <p>During my internship at Steve Madden, I worked on several enterprise IT projects focused on automation, user management, and infrastructure.
-       I helped assign emergency 911 addresses to Teams users across retail stores using PowerShell to automate bulk updates in Microsoft Teams Admin Center.
-        I also assisted in the company-wide migration from Duo to Microsoft Authenticator, using Microsoft Azure to manage user transitions and creating user documentation and communications. 
-        Additionally, I set up a Windows Server for automated Windows 11 deployments via PXE boot using Microsoft Deployment Toolkit (MDT) and Windows Deployment Services (WDS), including scripting driver extraction and configuring DHCP/DNS. 
-        This experience strengthened my skills in PowerShell, Azure, MDT, WDS, and enterprise IT operations.
-      Interns were tasked of picking a company that Steve Madden could acquire and create a pitch for a company. 
-      Our group chose the shoe brand called K-Swiss. The website is a rebranded mockup of the current existing K-Swiss website</p>
-  </div>
-    
-      <header>
-      <h1>Projects</h1>
-    </header>
-    <div class="p">
-      <p>
-        MITRE - Marist Threat Based vulnerability Prioritization Through Prompt Engineering</p>
+      <p>Steve Madden System Administrator Summer Intern</p>
     </div>
 
     <div class="container">
-      
-        <img src="./images/MITRE.png" alt="MITRE" />
+      <a href="Capstone/madden.html">
+        <img src="./Capstone/Images/SM.png" alt="Steve Madden" />
       </a>
       <p>
-        Researched threat-based vulnerability prioritization using AI and prompt engineering to improve how security teams assess and respond to cyber threats. 
-        Currently desinging an automated tool that maps vulnerabilities 
-        (CVEs) to attack techniques (TTPs) using MITRE ATT&CK, 
-        helping organizations prioritize real threats more effectively.
+        During my internship at Steve Madden, I worked on several enterprise IT projects focused on automation, user management, and infrastructure.
+        I helped assign emergency 911 addresses to Teams users across retail stores using PowerShell to automate bulk updates in Microsoft Teams Admin Center.
+        I also assisted in the company-wide migration from Duo to Microsoft Authenticator, using Microsoft Azure to manage user transitions and creating user documentation and communications.
+        Additionally, I set up a Windows Server for automated Windows 11 deployments via PXE boot using Microsoft Deployment Toolkit (MDT) and Windows Deployment Services (WDS), including scripting driver extraction and configuring DHCP/DNS.
+        This experience strengthened my skills in PowerShell, Azure, MDT, WDS, and enterprise IT operations.
+        Interns were tasked with picking a company that Steve Madden could acquire and create a pitch. Our group chose the shoe brand K-Swiss. The website is a rebranded mockup of the current K-Swiss website.
       </p>
     </div>
 
-  <div class="p">
-    <p>Cybersecurity Virtual Home Lab</p>
-  </div>
+    <div class="p">
+      <p>Best Buy Geek Squad Agent</p>
+    </div>
 
-  <div class="container">
-    <a href="">
-      <img src="./images/kali.png" alt="Kali" />
-      
-    </a>
-    <p>Created a home lab using linux virtual machines. 
-      Goal was to be able to simulate an attack between different virtual enviroments, as well as implemente a defense method to block an attack.
-    This was accomplished by using Kali to exploit port a vulnreble port on metasploitable2. 
-    Using pfSense, we were able to force traffic that was destined for metasploitable2 to pass through it and block any traffic sent through the specific port.</p>
-  </div>
+    <div class="container">
+      <a href="Bestbuy.com">
+        <img src="./images/geeksquad.png" alt="Geek Squad Agent" />
+      </a>
+      <p>
+        Provided technical support to customers with a wide range of devices. Diagnosed and resolved hardware and software issues, assisted with installations, and provided product recommendations.
+        Built strong communication and customer service skills while working in a fast-paced retail environment.
+      </p>
+    </div>
 
-  <div class="p">
-    <p>TryHackMe Modules</p>
-  </div>
+    <header>
+      <h1>Projects</h1>
+    </header>
 
-  <div class="container">
-    <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=2360785" style='border:none;'></iframe>
-    </a>
-    <p>Modules completed through TryHackMe meant to educate and improve skills relating to cybersecurity.
-      
-      Completed modules: Cyber Defense Frameworks, Cryptography, Compromising Advanced Directory, Endpoint Security Monitoring
-    </p>
-  </div>
+    <div class="p">
+      <p>MITRE - Marist Threat-Based Vulnerability Prioritization Through Prompt Engineering</p>
+    </div>
 
-  <div class="p">
-    <p>MDWebsite</p>
-  </div>
-  
-  <div class="container">
-    <a href="https://github.com/DrMaxD/MDWebsite">
-      <img src="./images/background.jpg" alt="MDWebsite" />
-    </a>
-    <p>MDWebsite is a website designed to advertise myself (Max Debin) and demonstrate by web development abilities. 
-      This project was inspired by multiple friends who have all created and recomended creating a personal website. 
-      This project was created with HTML, CSS There are two versions of the website. A static website and a dynamic one
-      using flask conected to a postgres database. The four main pages are an about me page, projects and experiences, 
-      my resume, as well as a contact me page where when the user fills out the information, 
-      an email will be sent to me containing the contents of the message.</p>
-  </div>
+    <div class="container">
+      <img src="./images/MITRE.png" alt="MITRE" />
+      <p>
+        Researched threat-based vulnerability prioritization using AI and prompt engineering to improve how security teams assess and respond to cyber threats.
+        Currently designing an automated tool that maps vulnerabilities (CVEs) to attack techniques (TTPs) using MITRE ATT&CK, helping organizations prioritize real threats more effectively.
+      </p>
+    </div>
 
+    <div class="p">
+      <p>Cybersecurity Virtual Home Lab</p>
+    </div>
 
+    <div class="container">
+      <a href="#">
+        <img src="./images/kali.png" alt="Kali" />
+      </a>
+      <p>
+        Created a home lab using Linux virtual machines. Simulated attack scenarios and implemented defense strategies.
+        Used Kali Linux to exploit a vulnerable port on Metasploitable2. Configured pfSense to inspect and block specific malicious traffic.
+      </p>
+    </div>
 
+    <div class="p">
+      <p>TryHackMe Modules</p>
+    </div>
 
+    <div class="container">
+      <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=2360785" style="border:none;"></iframe>
+      <p>
+        Completed modules on TryHackMe to enhance cybersecurity knowledge:
+        <br />Cyber Defense Frameworks, Cryptography, Compromising Active Directory, Endpoint Security Monitoring.
+      </p>
+    </div>
 
+    <div class="p">
+      <p>MDWebsite</p>
+    </div>
 
-
-
+    <div class="container">
+      <a href="https://github.com/DrMaxD/MDWebsite">
+        <img src="./images/background.jpg" alt="MDWebsite" />
+      </a>
+      <p>
+        MDWebsite is a personal site showcasing my background and web development skills. Built with HTML and CSS, with a dynamic version using Flask and PostgreSQL.
+        Includes an About Me page, Resume, Project showcase, and a Contact Me form that sends messages via email.
+      </p>
+    </div>
 
     <footer>&copy; 2025 Max Debin. All rights reserved.</footer>
   </body>

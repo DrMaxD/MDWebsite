@@ -18,8 +18,7 @@
         color: black;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        height: 100vh;
+        min-height: 100vh;
         align-items: center;
       }
 
@@ -33,6 +32,7 @@
         position: absolute;
         top: 0;
         left: 0;
+        z-index: 10;
       }
 
       header h1 {
@@ -58,13 +58,14 @@
         max-width: 800px;
         border-radius: 15px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        text-align: center;
         font-size: 1.2em;
         line-height: 1.5;
-        margin-top: 100px;
+        margin-top: 120px;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        text-align: left;
       }
 
       .container img {
@@ -73,16 +74,47 @@
         height: auto;
       }
 
+      .container p {
+        flex: 1;
+        min-width: 250px;
+      }
+
       footer {
         background-color: rgba(0, 0, 0, 0);
         color: white;
         text-align: center;
         padding: 10px;
-        position: absolute;
-        bottom: 0;
-        left: 0;
         width: 100%;
         font-size: 0.9em;
+        margin-top: auto;
+      }
+
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2em;
+        }
+
+        header a {
+          font-size: 1.2em;
+          top: 15px;
+          right: 15px;
+        }
+
+        .container {
+          flex-direction: column;
+          align-items: center;
+          margin: 100px 15px 30px;
+          font-size: 1em;
+        }
+
+        .container img {
+          margin: 0 0 15px;
+          width: 120px;
+        }
+
+        footer {
+          position: relative;
+        }
       }
     </style>
   </head>
@@ -91,22 +123,18 @@
       <h1>About Me</h1>
       <a href="index.html">Home</a>
     </header>
+
     <div class="container">
       <img src="./images/suit.png" alt="Suit">
-      <p>Hi, My name is Max Debin. I'm a student at Marist University studying cybersecurity. Whether it's within cybersecurity, music, or anything else, I always push myself to reach as high as possible, being motivated by the innovations of new technologies
-        <br>
-        <br>
-        Currently, I am the president of my schools cybersecurity club, where we host weekly meetings to discuss and teach topics relating to the field of cybersecurity through weekly meetings. 
-        Additionally I am also a research intern on a project that focuses on the prioritzation of vulnrabilities using a version of GPT to map vulnrabilities to attack techniques from the MITRE ATT&K framework.
-        <br>
-        <br>
-        Outside of cybersecurity, I am also a skilled musician, playing the saxophone for over 11 years. 
-        I've always had a passion for music, being a part of multiple ensembles, being able to play multiple instruments, and dedicating many hours to become as skilled as I am today.
-    </p>
+      <p>
+        Hi, My name is Max Debin. I'm a student at Marist University studying cybersecurity. Whether it's within cybersecurity, music, or anything else, I always push myself to reach as high as possible, being motivated by the innovations of new technologies.
+        <br><br>
+        Currently, I am the president of my school's cybersecurity club, where we host weekly meetings to discuss and teach topics relating to the field of cybersecurity. Additionally, I am also a research intern on a project that focuses on the prioritization of vulnerabilities using a version of GPT to map them to attack techniques from the MITRE ATT&CK framework.
+        <br><br>
+        Outside of cybersecurity, I am also a skilled musician, playing the saxophone for over 11 years. I've always had a passion for music, being a part of multiple ensembles, playing multiple instruments, and dedicating many hours to become as skilled as I am today.
+      </p>
     </div>
-    <br>
-    <br>
-    <br>
+
     <footer>&copy; 2025 Max Debin. All rights reserved.</footer>
   </body>
 </html>
