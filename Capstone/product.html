@@ -14,24 +14,14 @@
       <a href="madden2.html"><img src="Images/KS2.png" alt="K-Swiss company logo" class="logo" /></a>
     </div>
     <nav class="nav-links" aria-label="Primary menu">
-      <a href="#" role="link">New</a>
-      <a href="#" role="link">Men</a>
-      <a href="#" role="link">Women</a>
-      <a href="#" role="link">Kids</a>
-      <a href="#" role="link">Court</a>
-      <a href="#" role="link">Collabs</a>
-      <a href="#" role="link">Discover</a>
+      <a href="shop.html">New</a>
+      <a href="shop.html">Men</a>
+      <a href="shop.html">Women</a>
+      <a href="shop.html">Kids</a>
+      <a href="shop.html">Court</a>
+      <a href="shop.html">Collabs</a>
+      <a href="shop.html">Discover</a>
     </nav>
-    <div class="right-icons">
-      <div class="search-box" role="search">
-        <img src="Images/TEMP.png" alt="Search icon" class="icon" />
-        <label for="search-field" class="visually-hidden">🔍</label>
-        <input type="text" id="search-field" placeholder="Search" />
-      </div>
-      <img src="Images/TEMP.png" alt="Favorites icon" class="icon" role="img" />
-      <img src="Images/TEMP.png" alt="User account icon" class="icon" role="img" />
-      <img src="Images/TEMP.png" alt="Shopping cart icon" class="icon" role="img" />
-    </div>
   </header>
 
   <main class="product-page" id="main-content">
@@ -56,67 +46,67 @@
 
   <script>
     const products = {
-      classic: {
-        title: "TEMP",
-        image: "Images/TEMP.png",
-        thumbs: ["Images/TEMP.png", "Images/TEMP.png", "Images/TEMP.png"],
-        price: "0.00",
-        color: "TEMP",
-        sizes: ["TEMP", "TEMP", "TEMP"]
+      dash: {
+        title: "Dash",
+        image: "Images/dash red render.jpg",
+        thumbs: ["Images/dash red render.jpg","Images/dash blue render.jpg","Images/dash green.jpg"],
+        price: "129.95",
+        color: "Red",
+        sizes: ["7","8","9","10","11"]
       },
-      hypercourt: {
-        title: "TEMP",
-        image: "Images/TEMP.png",
-        thumbs: ["Images/TEMP.png", "Images/TEMP.png", "Images/TEMP.png"],
-        price: "0.00",
-        color: "TEMP",
-        sizes: ["TEMP", "TEMP", "TEMP"]
+      ryan: {
+        title: "Ryan",
+        image: "Images/ryan blue.jpg",
+        thumbs: ["Images/ryan blue.jpg","Images/ryan red render.jpg","Images/ryan green.jpg"],
+        price: "110.00",
+        color: "Blue",
+        sizes: ["7","8","9","10","11"]
       },
-      pickleball: {
-        title: "TEMP",
-        image: "Images/TEMP.png",
-        thumbs: ["Images/TEMP.png", "Images/TEMP.png", "Images/TEMP.png"],
-        price: "0.00",
-        color: "TEMP",
-        sizes: ["TEMP", "TEMP", "TEMP"]
+      z11: {
+        title: "Z-11",
+        image: "Images/Z-11 green.jpg",
+        thumbs: ["Images/Z-11 green.jpg","Images/Z-11 blue.jpg","Images/Z-11 red.jpg"],
+        price: "119.95",
+        color: "Green",
+        sizes: ["7","8","9","10","11"]
       },
       racket: {
-        title: "TEMP",
-        image: "Images/TEMP.png",
-        thumbs: ["Images/TEMP.png", "Images/TEMP.png", "Images/TEMP.png"],
+        title: "Racket Master",
+        image: "Images/PROMO1.png",
+        thumbs: ["Images/PROMO1.png","Images/racket-blue.png","Images/racket-red.png"],
         price: "0.00",
-        color: "TEMP",
-        sizes: ["TEMP", "TEMP", "TEMP"]
+        color: "Black",
+        sizes: ["7","8","9","10","11"]
       },
-      performance: {
-        title: "TEMP",
-        image: "Images/TEMP.png",
-        thumbs: ["Images/TEMP.png", "Images/TEMP.png", "Images/TEMP.png"],
-        price: "0.00",
-        color: "TEMP",
-        sizes: ["TEMP", "TEMP", "TEMP"]
+      sam: {
+        title: "Sam",
+        image: "Images/sam red render.jpg",
+        thumbs: ["Images/sam red render.jpg","Images/sam green render.jpg","Images/sam blue render.jpg"],
+        price: "110.00",
+        color: "Red",
+        sizes: ["7","8","9","10","11"]
       },
-      street: {
-        title: "TEMP",
-        image: "Images/TEMP.png",
-        thumbs: ["Images/TEMP.png", "Images/TEMP.png", "Images/TEMP.png"],
-        price: "0.00",
-        color: "TEMP",
-        sizes: ["TEMP", "TEMP", "TEMP"]
+      kody: {
+        title: "Kody",
+        image: "Images/Kody black.jpg",
+        thumbs: ["Images/Kody black.jpg","Images/Kody tan.jpg","Images/Kody white.jpg"],
+        price: "29.99",
+        color: "Black",
+        sizes: ["7","8","9","10","11"]
       },
-      courtexpress: {
-        title: "TEMP",
-        image: "Images/TEMP.png",
-        thumbs: ["Images/TEMP.png", "Images/TEMP.png", "Images/TEMP.png"],
-        price: "0.00",
-        color: "TEMP",
-        sizes: ["TEMP", "TEMP", "TEMP"]
+      walker: {
+        title: "Walker",
+        image: "Images/walker green.jpg",
+        thumbs: ["Images/walker green.jpg","Images/walker red.jpg","Images/walker blue.jpg"],
+        price: "119.95",
+        color: "Green",
+        sizes: ["7","8","9","10","11"]
       }
     };
 
     const params = new URLSearchParams(window.location.search);
-    const productKey = params.get("product");
-    const product = products[productKey];
+    const key = params.get("product");
+    const product = products[key];
 
     if (product) {
       document.getElementById("product-title").textContent = product.title;
@@ -127,11 +117,11 @@
       document.getElementById("product-price").textContent = `$${product.price}`;
       document.getElementById("product-color").textContent = product.color;
 
-      const sizeContainer = document.getElementById("product-sizes");
+      const container = document.getElementById("product-sizes");
       product.sizes.forEach(size => {
-        const button = document.createElement("button");
-        button.textContent = size;
-        sizeContainer.appendChild(button);
+        const btn = document.createElement("button");
+        btn.textContent = size;
+        container.appendChild(btn);
       });
     } else {
       document.body.innerHTML = "<h2>Product not found.</h2>";
