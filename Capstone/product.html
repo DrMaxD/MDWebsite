@@ -6,6 +6,47 @@
   <title>Product Page</title>
   <link rel="stylesheet" href="product.css" />
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    .colors button,
+    .sizes button {
+      padding: 10px 18px;
+      margin: 5px;
+      border: none;
+      border-radius: 25px;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .colors button:hover,
+    .sizes button:hover {
+      background-color: #222;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .buy-button {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #000, #444);
+      color: white;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease-in-out;
+    }
+
+    .buy-button:hover {
+      background: linear-gradient(90deg, #444, #000);
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
 
@@ -37,7 +78,8 @@
       <h1 id="product-title"></h1>
       <p class="product-subtitle">K-Swiss by Steve Madden</p>
       <p class="product-price" id="product-price">$0.00</p>
-      <p><strong>Color:</strong> <span id="product-color">TEMP</span></p>
+      <p><strong>Color:</strong></p>
+      <div class="colors" id="color-options"></div>
       <h4>Size</h4>
       <div class="sizes" id="product-sizes"></div>
       <button class="buy-button">COMING SOON!!!</button>
@@ -48,59 +90,63 @@
     const products = {
       dash: {
         title: "Dash",
-        image: "Images/dash red render.jpg",
-        thumbs: ["Images/dash red render.jpg","Images/dash blue render.jpg","Images/dash green.jpg"],
+        images: {
+          Red: "Images/dash red render.jpg",
+          Blue: "Images/dash blue render.jpg",
+          Green: "Images/dash green.jpg"
+        },
         price: "129.95",
-        color: "Red",
-        sizes: ["7","8","9","10","11"]
+        sizes: ["7", "8", "9", "10", "11"]
       },
       ryan: {
         title: "Ryan",
-        image: "Images/ryan blue.jpg",
-        thumbs: ["Images/ryan blue.jpg","Images/ryan red render.jpg","Images/ryan green.jpg"],
+        images: {
+          Red: "Images/ryan red render.jpg",
+          Blue: "Images/ryan blue.jpg",
+          Green: "Images/ryan green.jpg"
+        },
         price: "110.00",
-        color: "Blue",
-        sizes: ["7","8","9","10","11"]
+        sizes: ["7", "8", "9", "10", "11"]
       },
       z11: {
         title: "Z-11",
-        image: "Images/Z-11 green.jpg",
-        thumbs: ["Images/Z-11 green.jpg","Images/Z-11 blue.jpg","Images/Z-11 red.jpg"],
+        images: {
+          Red: "Images/Z-11 red.jpg",
+          Blue: "Images/Z-11 blue.jpg",
+          Green: "Images/Z-11 green.jpg"
+        },
         price: "119.95",
-        color: "Green",
-        sizes: ["7","8","9","10","11"]
-      },
-      racket: {
-        title: "Racket Master",
-        image: "Images/PROMO1.png",
-        thumbs: ["Images/PROMO1.png","Images/racket-blue.png","Images/racket-red.png"],
-        price: "0.00",
-        color: "Black",
-        sizes: ["7","8","9","10","11"]
+        sizes: ["7", "8", "9", "10", "11"]
       },
       sam: {
         title: "Sam",
-        image: "Images/sam red render.jpg",
-        thumbs: ["Images/sam red render.jpg","Images/sam green render.jpg","Images/sam blue render.jpg"],
+        images: {
+          Red: "Images/sam red render.jpg",
+          Blue: "Images/sam blue render.jpg",
+          Green: "Images/sam green render.jpg"
+        },
         price: "110.00",
-        color: "Red",
-        sizes: ["7","8","9","10","11"]
+        sizes: ["7", "8", "9", "10", "11"]
       },
       kody: {
         title: "Kody",
-        image: "Images/Kody black.jpg",
-        thumbs: ["Images/Kody black.jpg","Images/Kody tan.jpg","Images/Kody white.jpg"],
+        images: {
+          Black: "Images/Kody black.jpg",
+          Tan: "Images/Kody tan.jpg",
+          White: "Images/Kody white.jpg"
+        },
         price: "29.99",
-        color: "Black",
-        sizes: ["7","8","9","10","11"]
+        sizes: ["7", "8", "9", "10", "11"]
       },
       walker: {
         title: "Walker",
-        image: "Images/walker green.jpg",
-        thumbs: ["Images/walker green.jpg","Images/walker red.jpg","Images/walker blue.jpg"],
+        images: {
+          Red: "Images/walker red.jpg",
+          Blue: "Images/walker blue.jpg",
+          Green: "Images/walker green.jpg"
+        },
         price: "119.95",
-        color: "Green",
-        sizes: ["7","8","9","10","11"]
+        sizes: ["7", "8", "9", "10", "11"]
       }
     };
 
@@ -109,19 +155,41 @@
     const product = products[key];
 
     if (product) {
-      document.getElementById("product-title").textContent = product.title;
-      document.getElementById("main-image").src = product.image;
-      document.getElementById("thumb1").src = product.thumbs[0];
-      document.getElementById("thumb2").src = product.thumbs[1];
-      document.getElementById("thumb3").src = product.thumbs[2];
-      document.getElementById("product-price").textContent = `$${product.price}`;
-      document.getElementById("product-color").textContent = product.color;
+      const mainImage = document.getElementById("main-image");
+      const colorOptions = document.getElementById("color-options");
+      const sizesContainer = document.getElementById("product-sizes");
 
-      const container = document.getElementById("product-sizes");
+      const colors = Object.keys(product.images);
+      document.getElementById("product-title").textContent = product.title;
+      document.getElementById("product-price").textContent = `$${product.price}`;
+      mainImage.src = product.images[colors[0]];
+
+      // Thumbnails
+      const thumbs = document.querySelectorAll(".thumbnails img");
+      colors.forEach((color, i) => {
+        if (thumbs[i]) {
+          thumbs[i].src = product.images[color];
+          thumbs[i].addEventListener("click", () => {
+            mainImage.src = product.images[color];
+          });
+        }
+      });
+
+      // Color buttons
+      colors.forEach(color => {
+        const btn = document.createElement("button");
+        btn.textContent = color;
+        btn.addEventListener("click", () => {
+          mainImage.src = product.images[color];
+        });
+        colorOptions.appendChild(btn);
+      });
+
+      // Sizes
       product.sizes.forEach(size => {
         const btn = document.createElement("button");
         btn.textContent = size;
-        container.appendChild(btn);
+        sizesContainer.appendChild(btn);
       });
     } else {
       document.body.innerHTML = "<h2>Product not found.</h2>";
