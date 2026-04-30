@@ -96,6 +96,20 @@
         border: 2px solid white;
       }
 
+      .hidden-nav {
+        position: fixed;
+        bottom: 14px;
+        right: 18px;
+        font-size: 1.1em;
+        text-decoration: none;
+        opacity: 0.08;
+        transition: opacity 0.3s;
+      }
+
+      .hidden-nav:hover {
+        opacity: 0.55;
+      }
+
       @media (max-width: 768px) {
         section {
           flex-direction: column;
@@ -147,9 +161,7 @@
       <a href="https://github.com/DrMaxD">
         <img src="./images/github.png" alt="GitHub" />
       </a>
-      <a href="Cocktails/cocktails.html">
-        <img src="./images/cocktail.svg" alt="Cocktails" />
-      </a>
     <footer>&copy; 2025 Max Debin. All rights reserved.</footer>
+    <a class="hidden-nav" href="Cocktails/cocktails.html" title="Cocktails">🍸</a>
   </body>
 </html>
