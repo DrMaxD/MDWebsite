@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cocktail Recipe</title>
+    <link rel="stylesheet" href="cocktails.css" />
+  </head>
+  <body>
+    <a class="back-link" href="cocktails.html">← Back to Cocktails</a>
+
+    <div class="detail-wrapper">
+      <h1 class="detail-title" id="cocktail-title"></h1>
+      <div class="detail-image" id="cocktail-image">🍸</div>
+
+      <div class="detail-grid">
+        <div class="info-box">
+          <h2>Ingredients</h2>
+          <ul id="ingredients-list"></ul>
+        </div>
+        <div class="info-box">
+          <h2>Preparation</h2>
+          <ol id="prep-list"></ol>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <h2>Flair</h2>
+        <p class="flair-row"><strong>Glass:</strong> <span id="glass-text"></span></p>
+        <p class="flair-row"><strong>Garnish:</strong> <span id="garnish-text"></span></p>
+      </div>
+    </div>
+
+    <footer class="page-footer">&copy; 2025 Max Debin. All rights reserved.</footer>
+
+    <script>
+      const cocktails = {
+        // ── Gin ──────────────────────────────────────────────────────────────
+        "bees-knees": {
+          name: "Bee's Knees",
+          glass: "Coupe or cocktail glass (chilled)",
+          ingredients: [
+            "2 oz gin",
+            "¾ oz simple syrup",
+            "½ oz agave or honey syrup",
+            "Ice",
+          ],
+          preparation: [
+            "Chill a coupe or cocktail glass.",
+            "Combine all ingredients in a shaker with ice.",
+            "Shake vigorously for 15 seconds.",
+            "Double-strain into the chilled glass.",
+          ],
+          garnish:
+            "Lemon twist on the rim. A thin drizzle of honey across the surface adds a visual touch and a hint of extra sweetness.",
+        },
+        gimlet: {
+          name: "Gimlet",
+          glass: "Coupe or cocktail glass (chilled)",
+          ingredients: [
+            "2½ oz gin",
+            "½ oz simple syrup",
+            "½ oz lime juice",
+            "Ice",
+          ],
+          preparation: [
+            "Chill a coupe or cocktail glass.",
+            "Combine gin, simple syrup, and lime juice in a shaker with ice.",
+            "Shake vigorously for 15 seconds.",
+            "Double-strain into the chilled glass.",
+          ],
+          garnish:
+            "Lime wheel or thin lime twist on the rim. Keep it minimal — the Gimlet's clean flavor speaks for itself.",
+        },
+        "gin-and-tonic": {
+          name: "Gin & Tonic",
+          glass: "Highball or copa glass",
+          ingredients: [
+            "2 oz gin",
+            "4 oz quality tonic water",
+            "Ice",
+            "Lime",
+          ],
+          preparation: [
+            "Fill a highball or large copa glass generously with ice.",
+            "Pour the gin over the ice.",
+            "Top slowly with tonic water, pouring it down the side of the glass to preserve the carbonation.",
+            "Squeeze in a lime wedge and give it one gentle stir.",
+          ],
+          garnish:
+            "A lime wheel or wedge in the glass. Elevated options include a rosemary sprig, cucumber ribbon, or thinly sliced botanicals that complement your gin's flavor profile.",
+        },
+        negroni: {
+          name: "Negroni",
+          glass: "Rocks glass",
+          ingredients: [
+            "1 oz gin",
+            "1 oz Campari",
+            "1 oz sweet vermouth",
+            "Ice",
+          ],
+          preparation: [
+            "Combine gin, Campari, and sweet vermouth in a mixing glass with ice.",
+            "Stir for about 30 seconds until well chilled.",
+            "Strain into a rocks glass over a large ice cube.",
+          ],
+          garnish:
+            "A wide orange peel twist: cut a broad strip, hold it skin-side down over the glass, and squeeze sharply to express the citrus oils onto the surface. Place it in or on the drink.",
+        },
+        "sapphire-cloud": {
+          name: "Sapphire Cloud",
+          glass: "Cocktail glass (chilled)",
+          ingredients: [
+            "1½ oz gin",
+            "¾ oz blue curaçao",
+            "¾ oz lemon juice",
+            "½ oz simple syrup",
+            "1 egg white",
+            "Ice",
+          ],
+          preparation: [
+            "Chill a cocktail glass.",
+            "Combine all ingredients without ice and dry shake for 15 seconds to emulsify the egg white.",
+            "Add ice and shake hard for another 15 seconds.",
+            "Double-strain into the chilled glass.",
+          ],
+          garnish:
+            "Drop a few dots of blue curaçao onto the foam and drag a toothpick through to create a cloud or wave pattern. Finish with a lemon twist on the rim.",
+        },
+        "tom-collins": {
+          name: "Tom Collins",
+          glass: "Collins or highball glass",
+          ingredients: [
+            "2 oz gin",
+            "1 oz simple syrup",
+            "1 oz lemon juice",
+            "Ice",
+          ],
+          preparation: [
+            "Combine gin, simple syrup, and lemon juice in a shaker with ice.",
+            "Shake briefly for 10 seconds.",
+            "Strain into a Collins glass over fresh ice.",
+            "Top with club soda and stir gently.",
+          ],
+          garnish:
+            "Lemon wheel on the rim and a maraschino cherry. Serve with a long straw — the classic Collins presentation.",
+        },
+
+        // ── Rum ──────────────────────────────────────────────────────────────
+        daiquiri: {
+          name: "Daiquiri",
+          glass: "Coupe or cocktail glass (chilled)",
+          ingredients: [
+            "2 oz white rum",
+            "¾ oz fresh lime juice",
+            "¾ oz simple syrup",
+            "Ice",
+          ],
+          preparation: [
+            "Chill a coupe or cocktail glass.",
+            "Combine rum, lime juice, and simple syrup in a shaker with ice.",
+            "Shake hard for 15 seconds.",
+            "Double-strain into the chilled glass.",
+          ],
+          garnish:
+            "A thin lime wheel resting on the rim, or a small lime twist. The Daiquiri is a study in simplicity — keep the garnish minimal.",
+        },
+        mojito: {
+          name: "Mojito",
+          glass: "Highball glass",
+          ingredients: [
+            "2 oz white rum",
+            "1 oz fresh lime juice",
+            "¾ oz simple syrup",
+            "6–8 fresh mint leaves",
+            "2 oz club soda",
+            "Ice",
+          ],
+          preparation: [
+            "Muddle mint leaves and simple syrup in a highball glass.",
+            "Add lime juice and rum, then fill the glass with ice.",
+            "Top with club soda and stir gently to combine.",
+            "Taste and adjust sweetness if needed.",
+          ],
+          garnish:
+            "Fresh mint sprig and a lime wheel on the rim. Slap the mint sprig against your hand before placing it to release its aroma.",
+        },
+        "root-storm": {
+          name: "Root Storm",
+          glass: "Rocks glass",
+          ingredients: [
+            "2 oz rum",
+            "1 oz root beer schnapps",
+            "2 dashes vanilla extract",
+            "Top with cola of choice",
+            "Ice",
+          ],
+          preparation: [
+            "Fill a rocks glass with ice.",
+            "Add rum, root beer schnapps, and vanilla extract.",
+            "Shake for 10 seconds to combine and chill.",
+            "Strain into glass and finish with cola of choice.",
+          ],
+          garnish:
+            "Maraschino cherry on a pick. The root beer and vanilla give this a dessert-forward character — serve with a short straw.",
+        },
+
+        // ── Tequila ───────────────────────────────────────────────────────────
+        "garden-heat": {
+          name: "Garden Heat",
+          glass: "Rocks glass or highball",
+          ingredients: [
+            "2 oz tequila",
+            "1 oz watermelon schnapps",
+            "¾ oz lime juice",
+            "6–8 fresh mint leaves",
+            "Ice",
+          ],
+          preparation: [
+            "Muddle mint leaves in the bottom of a shaker.",
+            "Add tequila, watermelon schnapps, and lime juice.",
+            "Fill with ice and shake vigorously for 15 seconds.",
+            "Strain into a glass over fresh ice.",
+          ],
+          garnish:
+            "Fresh mint sprig and a thin watermelon slice fanned on the rim. The contrast of cool mint and sweet watermelon defines this drink.",
+        },
+        margarita: {
+          name: "Margarita",
+          glass: "Rocks glass or coupe",
+          ingredients: [
+            "2 oz tequila",
+            "¾ oz orange liqueur",
+            "¾ oz lime juice",
+            "½ oz agave syrup",
+            "Ice",
+          ],
+          preparation: [
+            "Combine tequila, orange liqueur, lime juice, and agave syrup in a cocktail shaker with ice.",
+            "Shake vigorously for 15 seconds.",
+            "Strain into a glass over fresh ice, or serve up in a coupe.",
+          ],
+          garnish:
+            "Lime wheel or wedge on the rim. For a salted rim, run a lime wedge around the edge and dip in kosher salt before pouring. For a spicy twist, use a chili-lime seasoning blend.",
+        },
+        "tequila-sunrise": {
+          name: "Tequila Sunrise",
+          glass: "Highball glass",
+          ingredients: [
+            "2 oz tequila",
+            "4 oz orange juice",
+            "½ oz grenadine",
+            "Ice",
+          ],
+          preparation: [
+            "Fill a highball glass with ice.",
+            "Pour the tequila over the ice, then add the orange juice.",
+            "Slowly pour the grenadine down the side of the glass — it will sink and create the sunrise gradient.",
+            "Do not stir. Serve immediately.",
+          ],
+          garnish:
+            "Orange wheel and a maraschino cherry skewered on a pick, placed on the rim. The layered sunrise gradient is the signature — serve without stirring.",
+        },
+
+        // ── Vodka ─────────────────────────────────────────────────────────────
+        appletini: {
+          name: "Appletini",
+          glass: "Cocktail glass (chilled)",
+          ingredients: [
+            "2 oz vodka",
+            "1 oz apple schnapps",
+            "1 oz lemon juice",
+            "Ice",
+          ],
+          preparation: [
+            "Chill a cocktail glass.",
+            "Combine vodka, apple schnapps, and lemon juice in a shaker with ice.",
+            "Shake vigorously for 15 seconds.",
+            "Double-strain into the chilled glass.",
+          ],
+          garnish:
+            "Thin green apple slice fanned on the rim, or a maraschino cherry for a more classic look.",
+        },
+        cosmopolitan: {
+          name: "Cosmopolitan",
+          glass: "Cocktail glass or coupe (chilled)",
+          ingredients: [
+            "1½ oz citrus vodka",
+            "1 oz triple sec or Cointreau",
+            "½ oz fresh lime juice",
+            "¼ oz cranberry juice",
+            "Ice",
+          ],
+          preparation: [
+            "Chill a cocktail glass by filling it with ice water while you prepare the drink.",
+            "Combine all ingredients in a shaker with ice.",
+            "Shake vigorously for 15 seconds.",
+            "Discard the ice water, then double-strain into the chilled glass.",
+          ],
+          garnish:
+            "A lime wheel on the rim, or a flamed orange peel for added drama. The finished drink should be a delicate pale pink — not deep red.",
+        },
+        "emerald-city": {
+          name: "Emerald City",
+          glass: "Cocktail glass or coupe (chilled)",
+          ingredients: [
+            "1½ oz melon liqueur",
+            "1 oz vodka",
+            "¾ oz lime juice",
+            "½ oz simple syrup",
+            "1 oz pineapple juice",
+            "Ice",
+          ],
+          preparation: [
+            "Chill a cocktail glass or coupe.",
+            "Combine all ingredients in a shaker with ice.",
+            "Shake vigorously for 15 seconds.",
+            "Double-strain into the chilled glass.",
+          ],
+          garnish:
+            "Pineapple wedge on the rim or a skewered maraschino cherry. The vivid green color is the main event — keep the garnish simple.",
+        },
+        "lemon-drop": {
+          name: "Lemon Drop",
+          glass: "Sugar-rimmed cocktail glass (chilled)",
+          ingredients: [
+            "2 oz vodka",
+            "½ oz orange liqueur",
+            "½ oz simple syrup",
+            "1 oz lemon juice",
+            "Ice",
+          ],
+          preparation: [
+            "Run a lemon wedge around the rim of a cocktail glass and dip it in sugar.",
+            "Chill the rimmed glass.",
+            "Combine all ingredients in a shaker with ice.",
+            "Shake vigorously for 15 seconds and double-strain into the chilled glass.",
+          ],
+          garnish:
+            "Lemon wheel or twist on the sugared rim. The contrast of tart lemon and sweet sugar rim is the signature of this drink.",
+        },
+
+        // ── Whiskey ───────────────────────────────────────────────────────────
+        "fall-harvest": {
+          name: "Fall Harvest",
+          glass: "Rocks glass or coupe",
+          ingredients: [
+            "2 oz whiskey",
+            "1½ oz apple cider",
+            "½ oz lemon juice",
+            "2 dashes orange bitters",
+            "¼ oz maple syrup",
+            "Ice",
+          ],
+          preparation: [
+            "Combine all ingredients in a mixing glass with ice.",
+            "Shake for 15 seconds until well chilled.",
+            "Strain into a rocks glass over a large ice cube, or into a coupe.",
+          ],
+          garnish:
+            "A cinnamon stick and a thin apple slice on the rim. An orange peel twist adds aromatic depth and ties together the fall flavors.",
+        },
+        manhattan: {
+          name: "Manhattan",
+          glass: "Coupe or cocktail glass (chilled)",
+          ingredients: [
+            "2 oz rye whiskey (or bourbon)",
+            "1 oz sweet vermouth",
+            "2 dashes Angostura bitters",
+            "Ice",
+          ],
+          preparation: [
+            "Combine whiskey, sweet vermouth, and bitters in a mixing glass with ice.",
+            "Stir for 30 seconds until well chilled and gently diluted.",
+            "Strain into a chilled coupe or cocktail glass.",
+          ],
+          garnish:
+            "A Luxardo or brandied cherry dropped into the glass. A lemon or orange twist is a common alternative for a brighter, more aromatic finish.",
+        },
+        "old-fashioned": {
+          name: "Old Fashioned",
+          glass: "Rocks glass",
+          ingredients: [
+            "2 oz bourbon or rye whiskey",
+            "1 sugar cube (or ½ tsp simple syrup)",
+            "2 dashes Angostura bitters",
+            "1 dash orange bitters",
+            "Ice (preferably a large cube)",
+          ],
+          preparation: [
+            "Place the sugar cube in a rocks glass and saturate with bitters.",
+            "Add a small splash of water and muddle until dissolved.",
+            "Add whiskey and stir well.",
+            "Add a large ice cube and stir again for about 30 seconds until chilled.",
+          ],
+          garnish:
+            "Express an orange peel over the glass by squeezing it skin-side down to release the oils, run it around the rim, then drape it over the ice. A Luxardo cherry is a classic optional addition.",
+        },
+        "whiskey-sour": {
+          name: "Whiskey Sour",
+          glass: "Rocks glass or coupe",
+          ingredients: [
+            "2 oz whiskey",
+            "¾ oz lemon juice",
+            "½ oz simple syrup",
+            "½ oz egg white",
+            "Ice",
+          ],
+          preparation: [
+            "Combine all ingredients without ice and dry shake for 15 seconds to emulsify the egg white.",
+            "Add ice and shake hard for another 15 seconds.",
+            "Strain into a rocks glass over a large ice cube, or into a coupe.",
+          ],
+          garnish:
+            "Drop 2 dashes of Angostura bitters onto the foam and drag a toothpick through to create a pattern. Finish with a Luxardo cherry and an orange half-wheel on the rim.",
+        },
+
+        // ── Wine & Aperitif ───────────────────────────────────────────────────
+        "aperol-spritz": {
+          name: "Aperol Spritz",
+          glass: "Large wine glass (balloon or spritz glass)",
+          ingredients: [
+            "3 oz Prosecco",
+            "2 oz Aperol",
+            "1 oz club soda",
+            "Ice",
+          ],
+          preparation: [
+            "Fill a large wine glass generously with ice.",
+            "Pour in the Prosecco first.",
+            "Add the Aperol.",
+            "Top with a splash of club soda and stir very gently once.",
+          ],
+          garnish:
+            "A half-orange wheel placed inside the glass. This is the classic Italian serve — simple, bright, and immediately recognizable.",
+        },
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get("name");
+      const cocktail = cocktails[slug];
+
+      if (!cocktail) {
+        document.querySelector(".detail-wrapper").innerHTML =
+          "<p class='not-found'>Cocktail not found. <a href='cocktails.html' style='color:white'>← Go back</a></p>";
+      } else {
+        document.title = cocktail.name + " — Cocktail Recipe";
+        document.getElementById("cocktail-title").textContent = cocktail.name;
+
+        const ingList = document.getElementById("ingredients-list");
+        cocktail.ingredients.forEach((item) => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          ingList.appendChild(li);
+        });
+
+        const prepList = document.getElementById("prep-list");
+        cocktail.preparation.forEach((step) => {
+          const li = document.createElement("li");
+          li.textContent = step;
+          prepList.appendChild(li);
+        });
+
+        document.getElementById("glass-text").textContent = cocktail.glass;
+        document.getElementById("garnish-text").textContent = cocktail.garnish;
+      }
+    </script>
+  </body>
+</html>
